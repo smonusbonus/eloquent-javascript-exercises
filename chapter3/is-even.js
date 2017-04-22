@@ -1,11 +1,12 @@
 function isEven(number) {
-  if (number === 0 || number === 2) {
+  const num = Math.abs(number);
+  if (num === 0 || num === 2) {
     return true;
   }
-  if (number === 1) {
+  if (num === 1) {
     return false;
   }
-  return isEven(number - 2);
+  return isEven(num - 2);
 }
 
 console.log(isEven(1));
@@ -16,3 +17,5 @@ console.log(isEven(5));
 console.log(isEven(50));
 console.log(isEven(75));
 console.log(isEven(122));
+console.log(isEven(-1));
+console.log(isEven(-4));
