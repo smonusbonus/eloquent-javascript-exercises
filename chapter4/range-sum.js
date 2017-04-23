@@ -1,8 +1,8 @@
-function range(start, end) {
+function range(start, end, step = 1) {
   const result = [];
-  while(result.length <= end) {
+  while(start <= end) {
     result.push(start);
-    start ++;
+    start = start + step;
   }
   return result;
 }
@@ -12,6 +12,7 @@ function sum(array) {
 }
 
 console.log(range(0, 10));
+console.log(range(1, 10, 2));
 console.log(sum(range(0, 10)));
 console.log(sum(range(0, 2)));
 console.log(sum(range(0, 5)));
