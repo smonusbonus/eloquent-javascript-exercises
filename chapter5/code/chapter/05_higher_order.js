@@ -55,3 +55,15 @@ ancestry.forEach((person) => {
 Object.keys(ageByCentury).forEach(century => {
   console.log(century, average(ageByCentury[century]));
 });
+
+const every = (array, func) => {
+  let result = false;
+  for(let i = 0; i < array.length; i++) {
+    result = func(array[i]);
+    if (!result) { break; }
+  }
+  return result;
+}
+
+console.log(every(ancestry, (person) => person.name !== undefined));
+console.log(every(ancestry, (person) => person.died > 1700));
