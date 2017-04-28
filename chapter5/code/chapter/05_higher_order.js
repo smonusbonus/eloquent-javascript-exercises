@@ -40,3 +40,18 @@ const mothersAgesAtBirthdays = ancestry.map((person) => {
 }).filter(age => age !== undefined);
 
 console.log(average(mothersAgesAtBirthdays));
+
+const ageByCentury = {};
+ancestry.forEach((person) => {
+  const age = person.died - person.born;
+  const century = Math.ceil(person.died / 100);
+
+  if (!ageByCentury[century]) {
+    ageByCentury[century] = [];
+  }
+  ageByCentury[century].push(age);
+});
+
+Object.keys(ageByCentury).forEach(century => {
+  console.log(century, average(ageByCentury[century]));
+});
