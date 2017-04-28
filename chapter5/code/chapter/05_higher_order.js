@@ -67,3 +67,15 @@ const every = (array, func) => {
 
 console.log(every(ancestry, (person) => person.name !== undefined));
 console.log(every(ancestry, (person) => person.died > 1700));
+
+const some = (array, func) => {
+  let result = false;
+  for(let i = 0; i < array.length; i++) {
+    result = func(array[i]);
+    if (result) { break; }
+  }
+  return result;
+}
+
+console.log(some(ancestry, (person) => person.died > 1700));
+console.log(some(ancestry, (person) => !person.mother));
